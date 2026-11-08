@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Verify Code | FinanceFlow
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <div class="auth-decoration decoration-one"></div>
+        <div class="auth-decoration decoration-two"></div>
+
+        <section class="auth-card">
+
+            <div class="auth-brand">
+
+                <span class="brand-mark">
+                    F
+                </span>
+
+                <span>
+                    FinanceFlow
+                </span>
+
+            </div>
+
+            <div class="auth-heading">
+
+                <span class="eyebrow">
+                    VERIFY YOUR EMAIL
+                </span>
+
+                <h1>
+                    Enter your code
+                </h1>
+
+                <p>
+                    We sent a 6-digit verification code
+                    to your email. The code expires in
+                    10 minutes.
+                </p>
+
+            </div>
+
+            <form id="verifyCodeForm">
+
+                <div class="form-group">
+
+                    <label for="verificationCode">
+                        Verification code
+                    </label>
+
+                    <input
+                        id="verificationCode"
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="6"
+                        autocomplete="one-time-code"
+                        placeholder="123456"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button wide"
+                    id="verifyCodeButton"
+                >
+                    Verify code
+                </button>
+
+                <p
+                    id="verifyCodeMessage"
+                    class="form-message"
+                ></p>
+
+            </form>
+
+            <div class="auth-footer">
+
+                <a href="{{ url_for('forgot_password') }}">
+                    ← Send a new code
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/verify_code.js') }}"></script>
+
+</body>
+
+</html>

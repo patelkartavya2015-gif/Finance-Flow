@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create account | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-decoration decoration-one"></div>
+    <div class="auth-decoration decoration-two"></div>
+
+    <div class="auth-card">
+
+        <div class="auth-brand">
+
+            <span class="brand-mark">
+                F
+            </span>
+
+            <span>
+                FinanceFlow
+            </span>
+
+        </div>
+
+        <div class="auth-heading">
+
+            <span class="eyebrow">
+                GET STARTED
+            </span>
+
+            <h1>
+                Build a better<br>
+                relationship with money.
+            </h1>
+
+            <p>
+                Create your personal FinanceFlow workspace
+                and start tracking today.
+            </p>
+
+        </div>
+
+        <form
+            id="signupForm"
+            class="stack-form"
+        >
+
+            <label>
+
+                Name
+
+                <input
+                    id="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Your name"
+                    required
+                >
+
+            </label>
+
+            <label>
+
+                Email
+
+                <input
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </label>
+
+            <label>
+
+                Password
+
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="At least 6 characters"
+                    minlength="6"
+                    required
+                >
+
+            </label>
+
+            <div
+                id="formError"
+                class="form-error"
+            ></div>
+
+            <button
+                class="primary-button wide"
+                type="submit"
+            >
+
+                Create account
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+
+            Already have an account?
+
+            <a href="{{ url_for('login') }}">
+                Sign in
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+
+{% endblock %}

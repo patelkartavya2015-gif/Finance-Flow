@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+Insights | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <span class="eyebrow">
+            UNDERSTAND
+        </span>
+
+        <h1>
+            Insights
+        </h1>
+
+        <p class="muted">
+            Simple signals from your recorded spending.
+        </p>
+
+    </div>
+
+</header>
+
+
+<section class="stats-grid">
+
+    <article class="stat-card">
+
+        <div class="stat-top">
+
+            <span>
+                Total spending
+            </span>
+
+            <span class="stat-icon">
+                Σ
+            </span>
+
+        </div>
+
+        <strong id="insightTotal">
+            —
+        </strong>
+
+        <small>
+            Recorded expenses
+        </small>
+
+    </article>
+
+
+    <article class="stat-card">
+
+        <div class="stat-top">
+
+            <span>
+                Largest expense
+            </span>
+
+            <span class="stat-icon">
+                ↑
+            </span>
+
+        </div>
+
+        <strong id="insightLargest">
+            —
+        </strong>
+
+        <small id="insightLargestName">
+            Largest transaction
+        </small>
+
+    </article>
+
+
+    <article class="stat-card">
+
+        <div class="stat-top">
+
+            <span>
+                Transactions
+            </span>
+
+            <span class="stat-icon">
+                #
+            </span>
+
+        </div>
+
+        <strong id="insightCount">
+            —
+        </strong>
+
+        <small>
+            Expenses recorded
+        </small>
+
+    </article>
+
+</section>
+
+
+<section class="panel">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">
+                SPENDING
+            </span>
+
+            <h2>
+                By category
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div
+        id="insightBars"
+        class="insight-bars"
+    ></div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/insights.js') }}"></script>
+
+{% endblock %}

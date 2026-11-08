@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        FinanceFlow
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    {% if user %}
+
+    <aside class="sidebar">
+
+        <!-- BRAND -->
+        <a
+            href="{{ url_for('dashboard') }}"
+            class="brand"
+        >
+
+            <span class="brand-mark">
+                F
+            </span>
+
+            <span class="brand-name">
+                FinanceFlow
+            </span>
+
+        </a>
+
+
+        <!-- WORKSPACE -->
+        <div class="nav-section">
+
+            <span class="nav-label">
+                WORKSPACE
+            </span>
+
+            <nav class="nav">
+
+                <!-- DASHBOARD -->
+                <a
+                    class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}"
+                    href="{{ url_for('dashboard') }}"
+                >
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <!-- EXPENSES -->
+                <a
+                    class="nav-link {% if request.endpoint == 'expenses_page' %}active{% endif %}"
+                    href="{{ url_for('expenses_page') }}"
+                >
+                    <span class="nav-icon">↕</span>
+                    <span>Expenses</span>
+                </a>
+
+
+                <!-- CATEGORIES -->
+                <a
+                    class="nav-link {% if request.endpoint == 'categories_page' %}active{% endif %}"
+                    href="{{ url_for('categories_page') }}"
+                >
+                    <span class="nav-icon">◈</span>
+                    <span>Categories</span>
+                </a>
+
+
+                <!-- BUDGETS -->
+                <a
+                    class="nav-link {% if request.endpoint == 'budgets_page' %}active{% endif %}"
+                    href="{{ url_for('budgets_page') }}"
+                >
+                    <span class="nav-icon">◎</span>
+                    <span>Budgets</span>
+                </a>
+
+
+                <!-- INSIGHTS -->
+                <a
+                    class="nav-link {% if request.endpoint == 'insights_page' %}active{% endif %}"
+                    href="{{ url_for('insights_page') }}"
+                >
+                    <span class="nav-icon">⌁</span>
+                    <span>Insights</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- INTELLIGENCE -->
+        <div class="nav-section">
+
+            <span class="nav-label">
+                INTELLIGENCE
+            </span>
+
+            <nav class="nav">
+
+                <!-- FLOWY AI -->
+                <a
+                    class="nav-link {% if request.endpoint == 'ai_assistant' %}active{% endif %}"
+                    href="{{ url_for('ai_assistant') }}"
+                >
+
+                    <span class="nav-icon">
+                        ✦
+                    </span>
+
+                    <span>
+                        Flowy AI
+                    </span>
+
+                    <span class="ai-badge">
+                        AI
+                    </span>
+
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <!-- SETTINGS -->
+            <a
+                class="nav-link {% if request.endpoint == 'settings' %}active{% endif %}"
+                href="{{ url_for('settings') }}"
+            >
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+            <!-- PROFILE -->
+            <div class="profile-mini">
+
+                <div class="avatar">
+                    {{ user.name[:1]|upper }}
+                </div>
+
+                <div class="profile-copy">
+
+                    <strong>
+                        {{ user.name }}
+                    </strong>
+
+                    <small>
+                        {{ user.email }}
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGOUT -->
+            <a
+                href="{{ url_for('logout') }}"
+                class="logout-link"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Log out
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    {% endif %}
+
+
+    <!-- MAIN CONTENT -->
+    <main
+        class="main-content {% if not user %}full-page{% endif %}"
+    >
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</div>
+
+
+{% block scripts %}
+{% endblock %}
+
+</body>
+
+</html>

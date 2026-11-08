@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+Flowy AI | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <span class="eyebrow">
+            YOUR FINANCIAL COPILOT
+        </span>
+
+        <h1>
+            Flowy AI
+        </h1>
+
+        <p class="muted">
+            Ask questions about your money,
+            spending or goals.
+        </p>
+
+    </div>
+
+    <button
+        class="secondary-button"
+        id="clearMemoryButton"
+    >
+        Clear memory
+    </button>
+
+</header>
+
+
+<section class="ai-shell">
+
+    <div class="ai-header">
+
+        <div class="flowy-avatar">
+            ✦
+        </div>
+
+        <div>
+
+            <strong>
+                Flowy
+            </strong>
+
+            <small>
+                FinanceFlow AI
+            </small>
+
+        </div>
+
+        <span class="online-dot">
+            Online
+        </span>
+
+    </div>
+
+
+    <div
+        id="chatMessages"
+        class="chat-messages"
+    ></div>
+
+
+    <form
+        id="aiForm"
+        class="chat-input"
+    >
+
+        <input
+            id="aiMessage"
+            autocomplete="off"
+            placeholder="Ask Flowy anything..."
+            required
+        >
+
+        <button
+            class="primary-button"
+            type="submit"
+        >
+            Send
+            <span>↑</span>
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/ai_assistant.js') }}"></script>
+
+{% endblock %}

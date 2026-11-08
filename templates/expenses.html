@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block title %}
+Expenses | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <span class="eyebrow">
+            TRACKING
+        </span>
+
+        <h1>
+            Expenses
+        </h1>
+
+        <p class="muted">
+            Every transaction, organized.
+        </p>
+
+    </div>
+
+    <button
+        class="primary-button"
+        id="openExpenseModal"
+    >
+        + Add expense
+    </button>
+
+</header>
+
+
+<section class="panel">
+
+    <div class="toolbar">
+
+        <div class="search-wrapper">
+
+            <span>
+                ⌕
+            </span>
+
+            <input
+                id="expenseSearch"
+                class="search-input"
+                placeholder="Search expenses..."
+            >
+
+        </div>
+
+        <select
+            id="categoryFilter"
+            class="filter-select"
+        >
+            <option value="">
+                All categories
+            </option>
+        </select>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Expense
+                    </th>
+
+                    <th>
+                        Category
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Amount
+                    </th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="expensesTableBody"></tbody>
+
+        </table>
+
+    </div>
+
+
+    <div
+        id="expensesEmpty"
+        class="empty-state"
+    >
+
+        <div class="empty-icon">
+            ◌
+        </div>
+
+        <strong>
+            No expenses found
+        </strong>
+
+        <span>
+            Try changing your search or filters.
+        </span>
+
+    </div>
+
+</section>
+
+
+<div
+    id="expenseModal"
+    class="modal hidden"
+>
+
+    <div
+        class="modal-backdrop"
+        data-close-modal
+    ></div>
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    EXPENSE
+                </span>
+
+                <h2 id="expenseModalTitle">
+                    Add expense
+                </h2>
+
+            </div>
+
+            <button
+                class="icon-button"
+                data-close-modal
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            id="expenseForm"
+            class="stack-form"
+        >
+
+            <input
+                id="expenseId"
+                type="hidden"
+            >
+
+            <label>
+
+                Description
+
+                <input
+                    id="expenseTitle"
+                    maxlength="200"
+                    placeholder="Groceries"
+                    required
+                >
+
+            </label>
+
+
+            <div class="two-col">
+
+                <label>
+
+                    Amount
+
+                    <input
+                        id="expenseAmount"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+
+                </label>
+
+                <label>
+
+                    Date
+
+                    <input
+                        id="expenseDate"
+                        type="date"
+                        required
+                    >
+
+                </label>
+
+            </div>
+
+
+            <label>
+
+                Category
+
+                <select
+                    id="expenseCategory"
+                    required
+                ></select>
+
+            </label>
+
+
+            <div
+                id="expenseError"
+                class="form-error"
+            ></div>
+
+
+            <button
+                class="primary-button wide"
+                type="submit"
+            >
+                Save expense
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div
+    id="deleteModal"
+    class="modal hidden"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-card small-modal">
+
+        <span class="eyebrow">
+            DANGER ZONE
+        </span>
+
+        <h2>
+            Delete expense?
+        </h2>
+
+        <p class="muted">
+            This action cannot be undone.
+            Type the confirmation code to continue.
+        </p>
+
+        <div
+            id="deleteCode"
+            class="confirmation-code"
+        ></div>
+
+        <input
+            id="deleteInput"
+            class="code-input"
+            maxlength="6"
+            placeholder="ENTER CODE"
+        >
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary-button"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="danger-button"
+                id="confirmDelete"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/expenses.js') }}"></script>
+
+{% endblock %}

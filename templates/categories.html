@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}
+Categories | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <span class="eyebrow">
+            ORGANIZE
+        </span>
+
+        <h1>
+            Categories
+        </h1>
+
+        <p class="muted">
+            Shape your spending into useful groups.
+        </p>
+
+    </div>
+
+    <button
+        class="primary-button"
+        id="addCategoryButton"
+    >
+        + New category
+    </button>
+
+</header>
+
+
+<section class="panel">
+
+    <div
+        id="categoriesGrid"
+        class="category-grid"
+    ></div>
+
+    <div
+        id="categoriesEmpty"
+        class="empty-state"
+    >
+        No categories yet.
+    </div>
+
+</section>
+
+
+<div
+    id="categoryModal"
+    class="modal hidden"
+>
+
+    <div
+        class="modal-backdrop"
+        data-close-modal
+    ></div>
+
+    <div class="modal-card small-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    CATEGORY
+                </span>
+
+                <h2 id="categoryModalTitle">
+                    New category
+                </h2>
+
+            </div>
+
+            <button
+                class="icon-button"
+                data-close-modal
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            id="categoryForm"
+            class="stack-form"
+        >
+
+            <input
+                id="categoryId"
+                type="hidden"
+            >
+
+            <label>
+
+                Name
+
+                <input
+                    id="categoryName"
+                    maxlength="100"
+                    placeholder="Subscriptions"
+                    required
+                >
+
+            </label>
+
+
+            <div
+                id="categoryError"
+                class="form-error"
+            ></div>
+
+
+            <button
+                class="primary-button wide"
+                type="submit"
+            >
+                Save category
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/categories.js') }}"></script>
+
+{% endblock %}

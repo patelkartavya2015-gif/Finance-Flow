@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sign in | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-decoration decoration-one"></div>
+    <div class="auth-decoration decoration-two"></div>
+
+    <div class="auth-card">
+
+        <div class="auth-brand">
+
+            <span class="brand-mark">
+                F
+            </span>
+
+            <span>
+                FinanceFlow
+            </span>
+
+        </div>
+
+        <div class="auth-heading">
+
+            <span class="eyebrow">
+                WELCOME BACK
+            </span>
+
+            <h1>
+                Your money,<br>
+                beautifully organized.
+            </h1>
+
+            <p>
+                Track expenses, manage budgets and understand
+                your financial life from one clean workspace.
+            </p>
+
+        </div>
+
+        <form
+            id="loginForm"
+            class="stack-form"
+        >
+
+            <label>
+
+                Email
+
+                <input
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </label>
+
+            <label>
+
+                Password
+
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="••••••••"
+                    required
+                >
+
+            </label>
+
+            <a
+    href="{{ url_for('forgot_password') }}"
+    class="forgot-password-link"
+>
+    Forgot password?
+</a>
+
+            <div
+                id="formError"
+                class="form-error"
+            ></div>
+
+            <button
+                class="primary-button wide"
+                type="submit"
+            >
+
+                Sign in
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+
+            New to FinanceFlow?
+
+            <a href="{{ url_for('signup') }}">
+                Create an account
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+{% endblock %}

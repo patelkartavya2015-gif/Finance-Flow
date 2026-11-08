@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}
+Settings | FinanceFlow
+{% endblock %}
+
+{% block content %}
+
+<header class="page-header">
+<div>
+
+    <span class="eyebrow">
+        ACCOUNT
+    </span>
+
+    <h1>
+        Settings
+    </h1>
+
+    <p class="muted">
+        Manage your FinanceFlow profile and preferences.
+    </p>
+
+</div>
+
+
+</header>
+
+<section class="panel settings-panel">
+
+<div class="section-heading">
+
+    <div>
+
+        <span class="eyebrow">
+            PROFILE
+        </span>
+
+        <h2>
+            Account details
+        </h2>
+
+    </div>
+
+</div>
+
+
+<div class="settings-form">
+
+    <div class="form-group">
+
+        <label for="name">
+            Name
+        </label>
+
+        <input
+            id="name"
+            value="{{ user.name }}"
+            autocomplete="name"
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="email">
+            Email
+        </label>
+
+        <input
+            id="email"
+            value="{{ user.email }}"
+            disabled
+        >
+
+        <small>
+            Your email cannot currently be changed.
+        </small>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="currency">
+            Currency
+        </label>
+
+        <select
+            id="currency"
+            name="currency"
+            class="form-select"
+        >
+            <option value="USD">🇺🇸 USD — US Dollar ($)</option>
+            <option value="INR">🇮🇳 INR — Indian Rupee (₹)</option>
+            <option value="EUR">🇪🇺 EUR — Euro (€)</option>
+            <option value="GBP">🇬🇧 GBP — British Pound (£)</option>
+            <option value="JPY">🇯🇵 JPY — Japanese Yen (¥)</option>
+            <option value="CNY">🇨🇳 CNY — Chinese Yuan (¥)</option>
+            <option value="KRW">🇰🇷 KRW — South Korean Won (₩)</option>
+            <option value="AUD">🇦🇺 AUD — Australian Dollar (A$)</option>
+            <option value="CAD">🇨🇦 CAD — Canadian Dollar (C$)</option>
+            <option value="SGD">🇸🇬 SGD — Singapore Dollar (S$)</option>
+            <option value="HKD">🇭🇰 HKD — Hong Kong Dollar (HK$)</option>
+            <option value="NZD">🇳🇿 NZD — New Zealand Dollar (NZ$)</option>
+            <option value="CHF">🇨🇭 CHF — Swiss Franc (CHF)</option>
+
+            <option value="AED">🇦🇪 AED — UAE Dirham (د.إ)</option>
+            <option value="SAR">🇸🇦 SAR — Saudi Riyal (﷼)</option>
+            <option value="QAR">🇶🇦 QAR — Qatari Riyal (﷼)</option>
+            <option value="KWD">🇰🇼 KWD — Kuwaiti Dinar (د.ك)</option>
+            <option value="BHD">🇧🇭 BHD — Bahraini Dinar (.د.ب)</option>
+            <option value="OMR">🇴🇲 OMR — Omani Rial (﷼)</option>
+
+            <option value="THB">🇹🇭 THB — Thai Baht (฿)</option>
+            <option value="MYR">🇲🇾 MYR — Malaysian Ringgit (RM)</option>
+            <option value="IDR">🇮🇩 IDR — Indonesian Rupiah (Rp)</option>
+            <option value="PHP">🇵🇭 PHP — Philippine Peso (₱)</option>
+            <option value="VND">🇻🇳 VND — Vietnamese Dong (₫)</option>
+
+            <option value="BRL">🇧🇷 BRL — Brazilian Real (R$)</option>
+            <option value="MXN">🇲🇽 MXN — Mexican Peso ($)</option>
+            <option value="ZAR">🇿🇦 ZAR — South African Rand (R)</option>
+            <option value="TRY">🇹🇷 TRY — Turkish Lira (₺)</option>
+            <option value="RUB">🇷🇺 RUB — Russian Ruble (₽)</option>
+
+            <option value="PLN">🇵🇱 PLN — Polish Złoty (zł)</option>
+            <option value="SEK">🇸🇪 SEK — Swedish Krona (kr)</option>
+            <option value="NOK">🇳🇴 NOK — Norwegian Krone (kr)</option>
+            <option value="DKK">🇩🇰 DKK — Danish Krone (kr)</option>
+            <option value="CZK">🇨🇿 CZK — Czech Koruna (Kč)</option>
+
+            <option value="ILS">🇮🇱 ILS — Israeli New Shekel (₪)</option>
+            <option value="EGP">🇪🇬 EGP — Egyptian Pound (£)</option>
+            <option value="NGN">🇳🇬 NGN — Nigerian Naira (₦)</option>
+            <option value="PKR">🇵🇰 PKR — Pakistani Rupee (₨)</option>
+            <option value="BDT">🇧🇩 BDT — Bangladeshi Taka (৳)</option>
+            <option value="LKR">🇱🇰 LKR — Sri Lankan Rupee (Rs)</option>
+            <option value="NPR">🇳🇵 NPR — Nepalese Rupee (₨)</option>
+        </select>
+
+    </div>
+
+
+    <div class="settings-actions">
+
+        <button
+            id="saveSettingsButton"
+            class="primary-button"
+            type="button"
+        >
+            Save changes
+        </button>
+
+        <span id="settingsMessage"></span>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="panel">
+
+
+<div class="section-heading">
+
+    <div>
+
+        <span class="eyebrow">
+            INTELLIGENCE
+        </span>
+
+        <h2>
+            Flowy AI
+        </h2>
+
+    </div>
+
+</div>
+
+<p class="muted settings-description">
+    Flowy can remember useful things you tell it
+    and use your recorded financial information
+    when relevant.
+</p>
+
+<a
+    href="{{ url_for('ai_assistant') }}"
+    class="secondary-button"
+>
+    Open Flowy AI →
+</a>
+
+
+</section>
+
+<section class="panel danger-panel">
+
+
+<span class="eyebrow">
+    SESSION
+</span>
+
+<h2>
+    Sign out
+</h2>
+
+<p class="muted">
+    End your current FinanceFlow session.
+</p>
+
+<a
+    href="{{ url_for('logout') }}"
+    class="danger-button"
+>
+    Log out
+</a>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+
+{% endblock %}
